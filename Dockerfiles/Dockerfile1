@@ -1,0 +1,15 @@
+FROM centos
+MAINTAINER denven<myemail@foxmail.com>
+
+ENV MY_PATH /usr/local
+WORKDIR $MY_PATH
+
+# install vim and net tools(support ifconfig)
+RUN yum -y install vim
+RUN -y install net-tools
+
+EXPOSE 80
+
+CMD echo $MY_PATH
+CMD echo "Success ------------ done"
+CMD /bin/bash
