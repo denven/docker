@@ -1,0 +1,21 @@
+# get my ip address
+
+FROM centos
+MAINTAINER denven<myemail@foxmail.com>
+
+# install curl
+RUN yum -y install curl
+
+# use curl to inquire my ip infor
+# use JSON formtat of CMD/ENTRYPOINT
+
+# This will be replaced if `docker run .... parameters`
+# `docker run -it myip` works
+# `docker run -it myip -i` won't work
+# CMD ["curl", "-s", "https://ip.cn"]
+CMD ["curl", "-s", "https://freegeoip.app/csv/"]
+
+# This will work if `docker run ... parameters`
+# `docker run -it myip -i` works
+# ENTRYPOINT ["curl", "-s", "https://ip.cn"]
+ENTRYPOINT ["curl", "-s", "https://freegeoip.app/csv/"]
